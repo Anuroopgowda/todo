@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <style>
+        /* Add some basic styling for better visualization */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex; /* Use flexbox to arrange sections horizontally */
+            flex-direction: column; /* Stack sections vertically */
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: right;
+            display: flex; /* Use flexbox for horizontal layout */
+            justify-content: flex-end; /* Align items to the end of the container */
+            align-items: center; /* Center items vertically within the header */
+            height: 50px; /* Set the height of the header */
+        }
+
+        .logout-button {
+            margin-left: auto; /* Move the button to the right side of the header */
+        }
+
+        .sections-container {
+            display: flex; /* Use flexbox for horizontal layout within the sections */
+        }
+
+        .section {
+            flex: 2; /* Each section takes equal width */
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            height: 650px; /* Set the height of each section */
+        }
+
+        .section1 {
+            flex: 1; /* Each section1 takes less width than section */
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            height: 650px; /* Set the height of section1 */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/logout" class="button2 logout-button">LOGOUT</a>
+    </header>
+
+    <div class="sections-container">
+        <div class="section">
+            <object type="text/html" data="{{url_for('home')}}" width="100%" height="100%">
+                <!-- fallback content in case the browser doesn't support the <object> tag -->
+                <p>Error loading section 1 content.</p>
+            </object>
+        </div>
+
+        <div class="section1">
+            <object type="text/html" data="{{url_for('home1')}}" width="100%" height="100%">
+                <!-- fallback content in case the browser doesn't support the <object> tag -->
+                <p>Error loading section 2 content.</p>
+            </object>
+        </div>
+    </div>
+
+</body>
+</html>
